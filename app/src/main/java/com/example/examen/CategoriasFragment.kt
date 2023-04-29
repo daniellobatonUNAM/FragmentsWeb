@@ -63,7 +63,7 @@ class CategoriasFragment : Fragment(){
 
         recyclerView = view.findViewById(R.id.recyclerViewCategorias)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = AdaptadorCategorias(listaElementos)
+        recyclerView.adapter = AdaptadorCategorias(requireContext(), listaElementos)
 
         return view
     }
