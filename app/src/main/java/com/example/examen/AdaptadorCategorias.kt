@@ -6,21 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-open class AdaptadorCategorias(private val context: Context,
-                               private val myDataList: List<ItemCategoria>) :
+open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
     RecyclerView.Adapter<AdaptadorCategorias.ViewHolder>() {
+
+    private lateinit var nombreItem: String
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleTextView: TextView = view.findViewById(R.id.titleTextView)
         fun bind(item: ItemCategoria) {
             itemView.setOnClickListener {
                 Log.d("Mensaje log", "Iniciando la aplicación. Item: $item");
+                setNombreItem(item.title)
+                Log.d("SIU", nombreItem);
+
             }
         }
+    }
+
+    fun setNombreItem(nombre: String){
+        nombreItem = nombre
     }
 
     fun getItem(position: Int): ItemCategoria {
