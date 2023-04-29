@@ -15,6 +15,11 @@ open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
     RecyclerView.Adapter<AdaptadorCategorias.ViewHolder>() {
 
     private lateinit var nombreItem: String
+    var onItemClickListener: OnItemClickListener? = null
+
+    interface OnItemClickListener {
+        fun onItemClick1(item: ItemCategoria)
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleTextView: TextView = view.findViewById(R.id.titleTextView)
@@ -23,10 +28,12 @@ open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
                 Log.d("Mensaje log", "Iniciando la aplicación. Item: $item");
                 setNombreItem(item.title)
                 Log.d("SIU", nombreItem);
-
+                onItemClickListener?.onItemClick1(item)
             }
         }
     }
+
+
 
     fun setNombreItem(nombre: String){
         nombreItem = nombre

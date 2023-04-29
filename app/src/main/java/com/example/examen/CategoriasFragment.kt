@@ -22,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [CategoriasFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CategoriasFragment : Fragment(){
+class CategoriasFragment(private val adaptador: AdaptadorCategorias) : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
@@ -47,23 +47,9 @@ class CategoriasFragment : Fragment(){
 
         val view = inflater.inflate(R.layout.fragment_categorias, container, false)
 
-        var categoria1: String = getString(R.string.categoria_1)
-        var categoria2: String = getString(R.string.categoria_2)
-        var categoria3: String = getString(R.string.categoria_3)
-        var categoria4: String = getString(R.string.categoria_4)
-        var categoria5: String = getString(R.string.categoria_5)
-
-        val listaElementos: List<ItemCategoria> = listOf(
-            ItemCategoria(categoria1),
-            ItemCategoria(categoria2),
-            ItemCategoria(categoria3),
-            ItemCategoria(categoria4),
-            ItemCategoria(categoria5)
-        )
-
         recyclerView = view.findViewById(R.id.recyclerViewCategorias)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = AdaptadorCategorias(listaElementos)
+        recyclerView.adapter = adaptador
 
         return view
     }
@@ -80,7 +66,7 @@ class CategoriasFragment : Fragment(){
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            CategoriasFragment().apply {
+            CategoriasFragment(AdaptadorCategorias(listOf())).apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
