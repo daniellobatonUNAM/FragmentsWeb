@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Examen</string>
+
+    <!-- Categorías -->
+    <string name="categoria_1">Ropa</string>
+    <string name="categoria_2">Electrónica</string>
+    <string name="categoria_3">Comestibles</string>
+    <string name="categoria_4">Deportes</string>
+    <string name="categoria_5">Hogar</string>
+
+    <!-- Default Opciones -->
+    <string name="texto_default">Selecciona una categoría</string>
+
+
+</resources>
