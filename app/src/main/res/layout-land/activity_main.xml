@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
+    android:orientation="horizontal">
+
+    <!-- Categorías -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"/>
+
+    <!-- WebView -->
+    <FrameLayout
+        android:id="@+id/containerWebView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_rowSpan="2"/>
+
+    <!-- Opciones -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"/>
+
+</GridLayout>
