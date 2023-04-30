@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:padding="15dp"
     android:orientation="vertical"
-    android:background="@drawable/rounded_border_azul"
+    android:background="@drawable/rounded_border_verde"
     android:layout_margin="8dp"
     >
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/opcionTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"

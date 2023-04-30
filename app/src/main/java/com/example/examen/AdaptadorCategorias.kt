@@ -44,7 +44,9 @@ open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+
         return ViewHolder(view).apply {
             view.setOnClickListener {
                 //Índice del elemento
@@ -54,6 +56,7 @@ open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
                 val item = getItem(position)
             }
         }
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
