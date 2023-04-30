@@ -37,7 +37,7 @@
         tools:context=".WebFragment">
 
         <WebView
-            android:id="@+id/my_web_view"
+            android:id="@+id/containerWebView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

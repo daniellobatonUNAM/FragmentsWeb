@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
 
     }
 
+
     fun remplazarFragmento(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.apply {
@@ -72,10 +73,25 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
     }
 
     override fun onItemClick2(item: ItemOpcion) {
+
         Log.d("Click 2", "Está funcionando el segundo fragment")
         Log.d("Click 2", "Opción: " + item.title + "\nURL: " + item.url)
 
-        inicializarWebView(item.url)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+            inicializarWebView(item.url)
+
+        }else if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+            val fragmentoWeb = WebFragment(item.url)
+
+            // Agregar el Fragment al contenedor
+            supportFragmentManager.beginTransaction()
+                .add(R.id.containerWebView, fragmentoWeb)
+                .commit()
+
+        }
+
     }
 
     fun actualizaSegundoFragment(nombre: String){
