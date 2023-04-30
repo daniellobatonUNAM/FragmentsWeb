@@ -1,5 +1,6 @@
 package com.example.examen
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -68,6 +69,8 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
     override fun onItemClick2(item: ItemOpcion) {
         Log.d("Click 2", "Está funcionando el segundo fragment")
         Log.d("Click 2", "Opción: " + item.title + "\nURL: " + item.url)
+
+        inicializarWebView(item.url)
     }
 
     fun actualizaSegundoFragment(nombre: String){
@@ -144,6 +147,14 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
 
     }
 
+    fun inicializarWebView(url: String){
+
+        val intent = Intent(this, WebActivity::class.java)
+
+        intent.putExtra("url", url)
+
+        startActivity(intent)
+    }
 
 
 }
