@@ -24,6 +24,8 @@ private const val ARG_PARAM2 = "param2"
  */
 class CategoriasFragment(private val adaptador: AdaptadorCategorias) : Fragment() {
 
+    constructor(): this(AdaptadorCategorias(listOf()))
+
     private lateinit var recyclerView: RecyclerView
 
 

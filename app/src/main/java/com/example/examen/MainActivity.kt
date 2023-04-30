@@ -1,6 +1,7 @@
 package com.example.examen
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListener, AdaptadorOpciones.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Ocultar la ActionBar
+            supportActionBar?.hide()
+        }
         setContentView(R.layout.activity_main)
 
         //Primer Fragment
