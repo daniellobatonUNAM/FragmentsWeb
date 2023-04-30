@@ -2,29 +2,29 @@ package com.example.examen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
 
 class WebActivity: AppCompatActivity() {
 
-    private lateinit var myWebView: WebView
+    private lateinit var url: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
 
-        myWebView = findViewById(R.id.my_web_view)
+        val extras = intent.extras
 
-        // Configura la WebView
-        myWebView.settings.javaScriptEnabled = true
-        myWebView.webViewClient = WebViewClient()
-
-        // Carga una URL
-        val url = intent.getStringExtra("url")
-        if (url != null) {
-            myWebView.loadUrl(url)
+        if (extras != null) {
+            url = extras.getString("url").toString()
         }
+
+        // Crear una instancia del Fragment
+        val fragmentoWeb = WebFragment(url)
+
+        // Agregar el Fragment al contenedor
+        supportFragmentManager.beginTransaction()
+            .add(R.id.containerWebView, fragmentoWeb)
+            .commit()
 
     }
 }
