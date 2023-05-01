@@ -35,12 +35,13 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
         val adaptador = AdaptadorCategorias(listaElementos)
         adaptador.onItemClickListener = this
 
-
         val fragmentoCategorias = CategoriasFragment(adaptador)
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer1, fragmentoCategorias)
             .commit()
+
+
 
         //Segundo Fragment (Sólo texto por defecto)
         val listaOpciones: List<ItemOpcion> = listOf()
@@ -56,42 +57,11 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
     }
 
 
-    fun remplazarFragmento(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.apply {
-            replace(R.id.fragmentContainer2, fragment)
-            addToBackStack(null)
-            commit()
-        }
-    }
-
     override fun onItemClick1(item: ItemCategoria) {
 
         var nombreSeccion = item.title
 
         actualizaSegundoFragment(nombreSeccion)
-    }
-
-    override fun onItemClick2(item: ItemOpcion) {
-
-        Log.d("Click 2", "Está funcionando el segundo fragment")
-        Log.d("Click 2", "Opción: " + item.title + "\nURL: " + item.url)
-
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-            inicializarWebView(item.url)
-
-        }else if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-            val fragmentoWeb = WebFragment(item.url)
-
-            // Agregar el Fragment al contenedor
-            supportFragmentManager.beginTransaction()
-                .add(R.id.containerWebView, fragmentoWeb)
-                .commit()
-
-        }
-
     }
 
     fun actualizaSegundoFragment(nombre: String){
@@ -105,49 +75,44 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
 
         when (nombre) {
             "Ropa" -> {
-                Log.d("When1", "Ropa")
-                opcion1 = "PULL&BEAR"
-                url1 = "https://www.pullandbear.com"
-                opcion2 = "Zara"
-                url2 = "https://www.zara.com"
-                opcion3 = "Hugo Boss"
-                url3 = "https://www.hugoboss.com"
+                opcion1 = getString(R.string.ropa_1)
+                url1 = getString(R.string.ropa_1_url)
+                opcion2 = getString(R.string.ropa_2)
+                url2 = getString(R.string.ropa_2_url)
+                opcion3 = getString(R.string.ropa_3)
+                url3 = getString(R.string.ropa_3_url)
             }
             "Electrónica" -> {
-                Log.d("When2", "Electrónica")
-                opcion1 = "Steren"
-                url1 = "https://www.steren.com.mx"
-                opcion2 = "Mobo"
-                url2 = "https://www.mobo.com.mx"
-                opcion3 = "Radioshack"
-                url3 = "https://www.radioshack.com.mx"
+                opcion1 = getString(R.string.electronica_1)
+                url1 = getString(R.string.electronica_1_url)
+                opcion2 = getString(R.string.electronica_2)
+                url2 = getString(R.string.electronica_2_url)
+                opcion3 = getString(R.string.electronica_3)
+                url3 = getString(R.string.electronica_3_url)
             }
             "Comestibles" -> {
-                Log.d("When3", "Comestibles")
-                opcion1 = "Sushi Roll"
-                url1 = "https://www.sushiroll.com.mx"
-                opcion2 = "Crepe Corner"
-                url2 = "https://www.crepecorners.com"
-                opcion3 = "Chilli's"
-                url3 = "https://www.chillis.com.mx"
+                opcion1 = getString(R.string.comestibles_1)
+                url1 = getString(R.string.comestibles_1_url)
+                opcion2 = getString(R.string.comestibles_2)
+                url2 = getString(R.string.comestibles_2_url)
+                opcion3 = getString(R.string.comestibles_3)
+                url3 = getString(R.string.comestibles_3_url)
             }
             "Deportes" -> {
-                Log.d("When4", "Deportes")
-                opcion1 = "Adidas"
-                url1 = "https://www.adidas.mx"
-                opcion2 = "Nike"
-                url2 = "https://www.nike.com"
-                opcion3 = "Puma"
-                url3 = "https://mx.puma.com"
+                opcion1 = getString(R.string.deportes_1)
+                url1 = getString(R.string.deportes_1_url)
+                opcion2 = getString(R.string.deportes_2)
+                url2 = getString(R.string.deportes_2_url)
+                opcion3 = getString(R.string.deportes_3)
+                url3 = getString(R.string.deportes_3_url)
             }
             "Hogar" -> {
-                Log.d("When5", "Hogar")
-                opcion1 = "Home Depot"
-                url1 = "https://www.homedepot.com.mx"
-                opcion2 = "Perfect-Home"
-                url2 = "https://www.perfect-home.mx"
-                opcion3 = "Redlemon"
-                url3 = "https://www.redlemon.com.mx"
+                opcion1 = getString(R.string.hogar_1)
+                url1 = getString(R.string.hogar_1_url)
+                opcion2 = getString(R.string.hogar_2)
+                url2 = getString(R.string.hogar_2_url)
+                opcion3 = getString(R.string.hogar_3)
+                url3 = getString(R.string.hogar_3_url)
             }
             else -> {}
         }
@@ -167,6 +132,36 @@ class MainActivity : AppCompatActivity(), AdaptadorCategorias.OnItemClickListene
         remplazarFragmento(fragmentoOpciones)
 
     }
+
+    fun remplazarFragmento(fragment: Fragment) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.apply {
+            replace(R.id.fragmentContainer2, fragment)
+            addToBackStack(null)
+            commit()
+        }
+    }
+
+    override fun onItemClick2(item: ItemOpcion) {
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+            inicializarWebView(item.url)
+
+        }else if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+            val fragmentoWeb = WebFragment(item.url)
+
+            // Agregar el Fragment al contenedor
+            supportFragmentManager.beginTransaction()
+                .add(R.id.containerWebView, fragmentoWeb)
+                .commit()
+
+        }
+
+    }
+
+
 
     fun inicializarWebView(url: String){
 

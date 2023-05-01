@@ -25,15 +25,11 @@ open class AdaptadorCategorias(private val myDataList: List<ItemCategoria>) :
         val titleTextView: TextView = view.findViewById(R.id.titleTextView)
         fun bind(item: ItemCategoria) {
             itemView.setOnClickListener {
-                Log.d("Mensaje log", "Iniciando la aplicación. Item: $item");
                 setNombreItem(item.title)
-                Log.d("SIU", nombreItem);
                 onItemClickListener?.onItemClick1(item)
             }
         }
     }
-
-
 
     fun setNombreItem(nombre: String){
         nombreItem = nombre

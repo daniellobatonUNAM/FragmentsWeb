@@ -8,10 +8,53 @@
     <string name="categoria_4">Deportes</string>
     <string name="categoria_5">Hogar</string>
 
+
     <!-- Default Opciones -->
     <string name="texto_default">Selecciona una categoría</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Opciones -->
+    <string name="ropa_1">JULIO</string>
+    <string name="ropa_2">Gucci</string>
+    <string name="ropa_3">Hugo Boss</string>
+
+    <string name="electronica_1">Steren</string>
+    <string name="electronica_2">Mobo</string>
+    <string name="electronica_3">Radioshack</string>
+
+    <string name="comestibles_1">Sushi Roll</string>
+    <string name="comestibles_2">Crepe Corner</string>
+    <string name="comestibles_3">Mc Donald\'s</string>
+
+    <string name="deportes_1">Adidas</string>
+    <string name="deportes_2">Nike</string>
+    <string name="deportes_3">Puma</string>
+
+    <string name="hogar_1">Home Depot</string>
+    <string name="hogar_2">Perfect-Home</string>
+    <string name="hogar_3">Redlemon</string>
+
+
+    <!-- URL's -->
+    <string name="ropa_1_url">https://julio.com</string>
+    <string name="ropa_2_url">https://www.gucci.com</string>
+    <string name="ropa_3_url">https://www.hugoboss.com</string>
+
+    <string name="electronica_1_url">https://www.steren.com.mx</string>
+    <string name="electronica_2_url">https://www.mobo.com.mx</string>
+    <string name="electronica_3_url">https://www.radioshack.com.mx</string>
+
+    <string name="comestibles_1_url">https://www.sushiroll.com.mx</string>
+    <string name="comestibles_2_url">https://www.crepecorners.com</string>
+    <string name="comestibles_3_url">https://www.mcdonalds.com.mx</string>
+
+    <string name="deportes_1_url">https://www.adidas.mx</string>
+    <string name="deportes_2_url">https://www.nike.com</string>
+    <string name="deportes_3_url">https://mx.puma.com</string>
+
+    <string name="hogar_1_url">https://www.homedepot.com.mx</string>
+    <string name="hogar_2_url">https://www.perfect-home.mx</string>
+    <string name="hogar_3_url">https://www.redlemon.com.mx</string>
 
 
 </resources>

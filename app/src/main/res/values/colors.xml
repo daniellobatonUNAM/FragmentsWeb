@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Propios -->
-    <color name="fondo_categoria">#144582</color>
+    <color name="fondo_categoria">#2196F3</color>
     <color name="fondo_opcion">#106b33</color>
 
 </resources>
